@@ -1,0 +1,16 @@
+[project]
+name = "path-utils-module"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
+
+
+[tool.setuptools.packages.find]
+include = ["path_utils_module", "path_utils_module.*"]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.2.0",
+]
