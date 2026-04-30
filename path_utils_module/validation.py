@@ -20,10 +20,10 @@ def validation_path(
         path_.parent.mkdir(parents=True, exist_ok=True)
 
     if exists_check and not path_.exists():
-        raise FileNotFoundError("パスが存在していません。")
+        raise FileNotFoundError(f"パス: {path_} が存在していません。")
 
     if not_exists_check and path_.exists():
-        raise FileNotFoundError("パスが存在しています。")
+        raise FileNotFoundError(f"パス: {path_} が存在しています。")
 
     return path_
 
