@@ -23,21 +23,26 @@ def validation_path(
         raise FileNotFoundError(f"パス: {path_} が存在していません。")
 
     if not_exists_check and path_.exists():
-        raise FileNotFoundError(f"パス: {path_} が存在しています。")
+        raise FileExistsError(f"パス: {path_} が存在しています。")
 
     return path_
 
 
 def validation_path_list(
-    path_list: Path | str | list[Path | str], exists_check: bool = False, parents_mkdir: bool = False
-):
+    path_list: Path | str | list[Path | str],
+    exists_check: bool = False,
+    not_exists_check: bool = False,
+    parents_mkdir: bool = False,
+) -> list[Path]:
     path_list_ = []
     # リスト化
     if not isinstance(path_list, list):
         path_list = [path_list]
     # 各要素をバリデーション
     for path in path_list:
-        path_ = validation_path(path, exists_check=exists_check, parents_mkdir=parents_mkdir)
+        path_ = validation_path(
+            path=path, exists_check=exists_check, not_exists_check=not_exists_check, parents_mkdir=parents_mkdir
+        )
         path_list_.append(path_)
 
     return path_list_
