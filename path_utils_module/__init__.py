@@ -2,3 +2,4 @@ from pathlib import Path
 
 from path_utils_module.const import USER_DESKTOP_FOLDER_PATH, USER_DOWNLOAD_FOLDER_PATH
 from path_utils_module.validation import validation_path, validation_path_list
+from path_utils_module.eliminate import sanitize_windows_path_name
