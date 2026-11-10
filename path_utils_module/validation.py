@@ -4,8 +4,8 @@ from pathlib import Path
 def validation_path(
     path: Path | str, exists_check: bool = False, not_exists_check: bool = False, parents_mkdir: bool = False
 ) -> Path:
-    if isinstance(path, Path | str):
-        path_ = Path(path)
+    if isinstance(path, (Path, str)):
+        path_ = Path(str(path).strip())
     else:
         raise TypeError("パスの形式で頼みます。")
 
